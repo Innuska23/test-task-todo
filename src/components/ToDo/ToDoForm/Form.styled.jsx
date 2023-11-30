@@ -6,6 +6,7 @@ export const FormWrapper = styled.form`
   gap: 10px;
   margin: auto;
   justify-content: center;
+  margin-bottom: 40px;
 `;
 
 export const FormInput = styled.input`

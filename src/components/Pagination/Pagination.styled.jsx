@@ -1,13 +1,18 @@
 import styled from "@emotion/styled";
 
+export const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const PaginationWrapper = styled.ul`
   display: flex;
   list-style: none;
-  justify-content: center;
-  height: 30px;
   gap: 5px;
   margin-top: 25px;
   margin-bottom: 25px;
+  align-items: center;
 `;
 
 export const PaginationButton = styled.button`
@@ -19,13 +24,21 @@ export const PaginationButton = styled.button`
   width: 30px;
   display: inline-block;
 
+  background-color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.blue : theme.colors.white};
+  border-color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.blue : theme.colors.white};
+
   :hover {
     background-color: #ccc;
   }
   :active,
   :focus {
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    /* color: #fff; */
+    background-color: ${({ theme }) => theme.colors.blue};
+    border: 1px solid ${({ theme }) => theme.colors.blue};
   }
+`;
+
+export const PaginationTotal = styled.p`
+  margin-left: 120px;
 `;

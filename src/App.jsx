@@ -1,28 +1,19 @@
 import { ThemeProvider } from "@emotion/react";
-import { Header } from "./components/header";
+import { Provider } from "react-redux";
 
 import "./App.css";
+
 import { Theme } from "./constants/theme";
-import { Form } from "./components/ToDo/ToDoForm";
-import { ToDolist } from "./components/ToDo/ToDoList/ToDoList";
-import { Pagination } from "./components/Pagination/Pagination";
+import { store } from "./redux/store";
+import { ToDO } from "./components/ToDo/Todo";
 
 function App() {
   return (
-    <ThemeProvider theme={Theme}>
-      {/* <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-        }} */}
-      {/* > */}
-      <Header />
-      <Form />
-      <ToDolist />
-      <Pagination />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={Theme}>
+        <ToDO />
+      </ThemeProvider>
+    </Provider>
   );
 }
 

@@ -5,6 +5,7 @@ export const ToDoListItemWrapper = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 `;
 
 export const ToDolistItemText = styled.span`
@@ -19,8 +20,9 @@ export const ToDoListItemBox = styled.div`
 export const ToDoListItemButton = styled.button`
   border: none;
   border-radius: 10px;
+  /* color: #fff; */
   cursor: pointer;
   height: 40px;
-  padding: 10px;
+  width: 50px;
   white-space: nowrap;
 `;

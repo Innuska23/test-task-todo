@@ -1,10 +1,12 @@
 import { ToDoListItem } from "../ToDoListItem";
 import { ToDoListWrapper } from "./ToDoList.styled";
 
-export const ToDolist = () => {
+export const ToDolist = ({ list }) => {
   return (
     <ToDoListWrapper>
-      <ToDoListItem />
+      {list?.map(({ id, todo }) => (
+        <ToDoListItem key={id} todo={todo} id={id} />
+      ))}
     </ToDoListWrapper>
   );
 };

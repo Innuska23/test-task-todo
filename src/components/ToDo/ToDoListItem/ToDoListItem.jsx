@@ -5,10 +5,10 @@ import {
   ToDolistItemText,
 } from "./ToDoListItem.styled";
 
-export const ToDoListItem = () => {
+export const ToDoListItem = ({ todo, id }) => {
   return (
     <ToDoListItemWrapper>
-      <ToDolistItemText> 1234 </ToDolistItemText>
+      <ToDolistItemText>{todo}</ToDolistItemText>
       <ToDoListItemBox>
         <ToDoListItemButton>Edit</ToDoListItemButton>
         <ToDoListItemButton>Done</ToDoListItemButton>

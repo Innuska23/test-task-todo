@@ -5,12 +5,11 @@ import {
   PaginationWrapper,
 } from "./Pagination.styled";
 
-const before = 1;
-
 export const Pagination = ({ pages, currentPage, onSetPage }) => {
-  const startIndex = currentPage - before <= 0 ? 0 : currentPage - before;
-
   const after = currentPage === 0 ? 3 : 2;
+  const before = currentPage === pages?.length - 1 ? 2 : 1;
+
+  const startIndex = currentPage - before <= 0 ? 0 : currentPage - before;
   const endIndex =
     currentPage + after >= pages?.length ? pages?.length : currentPage + after;
 
@@ -49,7 +48,7 @@ export const Pagination = ({ pages, currentPage, onSetPage }) => {
           </PaginationButton>
         </li>
       </PaginationWrapper>
-      <PaginationTotal>TOTAL PAGE: {pages.length}</PaginationTotal>
+      <PaginationTotal>Total pages: {pages.length}</PaginationTotal>
     </PaginationContainer>
   );
 };

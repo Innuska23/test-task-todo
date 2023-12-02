@@ -10,6 +10,7 @@ export const ToDoListItemWrapper = styled.li`
 
 export const ToDolistItemText = styled.span`
   margin-right: 10px;
+  text-decoration: ${({ $isDone }) => ($isDone ? "line-through" : "none")};
 `;
 
 export const ToDoListItemBox = styled.div`
@@ -20,9 +21,11 @@ export const ToDoListItemBox = styled.div`
 export const ToDoListItemButton = styled.button`
   border: none;
   border-radius: 10px;
-  /* color: #fff; */
+  box-shadow: 0 3px 1px #0000001a, 0 1px 2px #00000014, 0 2px 2px #0000001f;
   cursor: pointer;
   height: 40px;
   width: 50px;
   white-space: nowrap;
+  :hover {
+    background-color: #ccc;
 `;

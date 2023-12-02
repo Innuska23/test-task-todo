@@ -4,14 +4,44 @@ import { client } from "./client";
 export const toDoApi = createApi({
   reducerPath: "toDoApi",
   baseQuery: client,
+  tagTypes: ["todoList"],
   endpoints: (builder) => ({
-    getToDoApi: builder.query({
+    getToDoList: builder.query({
       query: (params) => ({
-        url: "/todos",
+        url: "/todo",
         params,
       }),
+      providesTags: ["todoList"],
+    }),
+    addPost: builder.mutation({
+      query: (body) => ({
+        url: "/todo",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["todoList"],
+    }),
+    updateTodo: builder.mutation({
+      query: ({ body, id }) => ({
+        url: `/todo/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["todoList"],
+    }),
+    deleteTodo: builder.mutation({
+      query: (id) => ({
+        url: `/todo/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["todoList"],
     }),
   }),
 });
 
-export const { useLazyGetToDoApiQuery } = toDoApi;
+export const {
+  useGetToDoListQuery,
+  useAddPostMutation,
+  useUpdateTodoMutation,
+  useDeleteTodoMutation,
+} = toDoApi;

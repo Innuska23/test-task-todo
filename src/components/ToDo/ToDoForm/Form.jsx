@@ -1,8 +1,17 @@
+import { useAddPostMutation } from "../../../redux/api/ToDoApi";
 import { FormButton, FormInput, FormWrapper } from "./Form.styled";
 
-export const Form = () => {
+export const Form = (todo, isDone) => {
+  const [addTodo, { data }] = useAddPostMutation();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[0].value);
+    addTodo({ todo: e.target[0].value, isDone: false });
+    e.target.reset();
+  };
+
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={handleSubmit}>
       <FormInput
         autoComplete="off"
         type="text"
@@ -10,7 +19,7 @@ export const Form = () => {
         placeholder="Enter task..."
         required
       />
-      <FormButton>Add</FormButton>
+      <FormButton type="submit">Add</FormButton>
     </FormWrapper>
   );
 };

@@ -1,22 +1,31 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { DEFAULT_LIMIT } from "../../constants/common";
 import { usePagination } from "../../hooks/usePagination";
-import { useLazyGetToDoApiQuery } from "../../redux/api/ToDoApi";
+import { useGetToDoListQuery } from "../../redux/api/ToDoApi";
 import { Pagination } from "../Pagination";
 import { Header } from "../header";
 import { Form } from "./ToDoForm";
-import { ToDolist } from "./ToDoList/ToDoList";
+import { ToDoList } from "./ToDoList/ToDoList";
 
 export const ToDO = () => {
-  const [getTodoList, { data, isLoading }] = useLazyGetToDoApiQuery();
+  const { data, isLoading } = useGetToDoListQuery();
   const { currentPage, offset, pages, setCurrentPage } = usePagination({
-    count: data?.total,
+    count: data?.length,
     limit: DEFAULT_LIMIT,
   });
 
-  useEffect(() => {
-    getTodoList({ limit: DEFAULT_LIMIT, skip: offset });
-  }, [currentPage]);
+  const todos = useMemo(() => {
+    if (!data) return [];
+
+    return data.slice(offset, offset + DEFAULT_LIMIT);
+  }, [data, offset]);
+  console.log(
+    "🚀 ~ file: Todo.jsx:28 ~ todos ~ todos:",
+    data,
+    todos,
+    offset,
+    offset + DEFAULT_LIMIT
+  );
 
   if (isLoading) return <h1>Loading ...</h1>;
 
@@ -24,7 +33,7 @@ export const ToDO = () => {
     <>
       <Header />
       <Form />
-      <ToDolist list={data?.todos} />
+      <ToDoList list={todos} />
       <Pagination
         currentPage={currentPage}
         pages={pages}

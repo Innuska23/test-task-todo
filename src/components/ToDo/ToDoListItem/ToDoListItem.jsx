@@ -5,14 +5,24 @@ import {
   ToDolistItemText,
 } from "./ToDoListItem.styled";
 
-export const ToDoListItem = ({ todo, id }) => {
+export const ToDoListItem = ({ isDone, todo, id, onDelete, onUpdate }) => {
+  const handleDoneClick = () => {
+    onUpdate(id, { isDone: !isDone, todo });
+  };
+
+  const handleDeleteClick = () => {
+    onDelete(id);
+  };
+
   return (
     <ToDoListItemWrapper>
-      <ToDolistItemText>{todo}</ToDolistItemText>
+      <ToDolistItemText $isDone={isDone}>{todo}</ToDolistItemText>
       <ToDoListItemBox>
         <ToDoListItemButton>Edit</ToDoListItemButton>
-        <ToDoListItemButton>Done</ToDoListItemButton>
-        <ToDoListItemButton>Delete</ToDoListItemButton>
+        <ToDoListItemButton onClick={handleDoneClick}>Done</ToDoListItemButton>
+        <ToDoListItemButton onClick={handleDeleteClick}>
+          Delete
+        </ToDoListItemButton>
       </ToDoListItemBox>
     </ToDoListItemWrapper>
   );

@@ -11,4 +11,5 @@ export const HeaderWrapper = styled.div`
 export const HeaderText = styled.h1`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.black};
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 `;

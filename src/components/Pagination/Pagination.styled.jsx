@@ -16,9 +16,10 @@ export const PaginationWrapper = styled.ul`
 `;
 
 export const PaginationButton = styled.button`
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  background-color: #4c91af;
+  border: none;
+  box-shadow: 0 3px 1px #0000001a, 0 1px 2px #00000014, 0 2px 2px #0000001f;
+  border-radius: 5px;
   cursor: pointer;
   height: 30px;
   width: 30px;

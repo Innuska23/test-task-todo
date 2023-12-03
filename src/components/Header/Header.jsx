@@ -1,4 +1,4 @@
-import { HeaderText, HeaderWrapper } from "./Header.styled";
+import { HeaderText, HeaderWrapper } from "./Header.styled.jsx";
 
 export const Header = () => {
   return (

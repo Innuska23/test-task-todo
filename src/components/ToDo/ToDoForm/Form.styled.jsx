@@ -9,14 +9,6 @@ export const FormWrapper = styled.form`
   margin-bottom: 40px;
 `;
 
-export const FormInput = styled.input`
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  height: 40px;
-  padding-left: 10px;
-  width: 210px;
-`;
-
 export const FormButton = styled.button`
   background-color: #4c91af;
   border: none;

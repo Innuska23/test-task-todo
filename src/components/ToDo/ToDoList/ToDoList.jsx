@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {
   useAddPostMutation,
   useDeleteTodoMutation,
@@ -7,7 +9,7 @@ import { ToDoListItem } from "../ToDoListItem";
 import { ToDoListWrapper } from "./ToDoList.styled";
 
 export const ToDoList = ({ list }) => {
-  const [addTodo, { data }] = useAddPostMutation();
+  const [addTodo] = useAddPostMutation();
   const [deleteTodo] = useDeleteTodoMutation();
   const [updateTodo] = useUpdateTodoMutation();
 
@@ -19,9 +21,7 @@ export const ToDoList = ({ list }) => {
     deleteTodo(id);
   };
 
-  const handleUpdateTodo = (id, body) => {
-    updateTodo({ id, body });
-  };
+  const handleUpdateTodo = (id, body) => updateTodo({ id, body }).unwrap();
 
   return (
     <ToDoListWrapper>
@@ -38,4 +38,14 @@ export const ToDoList = ({ list }) => {
       ))}
     </ToDoListWrapper>
   );
+};
+
+ToDoList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      isDone: PropTypes.bool,
+      todo: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ),
 };

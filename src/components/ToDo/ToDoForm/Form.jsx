@@ -1,25 +1,26 @@
 import { useAddPostMutation } from "../../../redux/api/ToDoApi";
-import { FormButton, FormInput, FormWrapper } from "./Form.styled";
+import { Button } from "../../Button";
+import { Input } from "../../Input";
+import { FormWrapper } from "./Form.styled";
 
-export const Form = (todo, isDone) => {
-  const [addTodo, { data }] = useAddPostMutation();
+export const Form = () => {
+  const [addTodo] = useAddPostMutation();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
     addTodo({ todo: e.target[0].value, isDone: false });
     e.target.reset();
   };
 
   return (
     <FormWrapper onSubmit={handleSubmit}>
-      <FormInput
+      <Input
         autoComplete="off"
         type="text"
         name="name"
         placeholder="Enter task..."
         required
       />
-      <FormButton type="submit">Add</FormButton>
+      <Button type="submit">Add</Button>
     </FormWrapper>
   );
 };

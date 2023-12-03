@@ -6,6 +6,11 @@ export const PaginationContainer = styled.div`
   align-items: center;
 `;
 
+export const PaginationBlankItem = styled.div`
+  width: 10px;
+  height: 10px;
+`;
+
 export const PaginationWrapper = styled.ul`
   display: flex;
   list-style: none;
@@ -41,5 +46,5 @@ export const PaginationButton = styled.button`
 `;
 
 export const PaginationTotal = styled.p`
-  margin-left: 120px;
+  font-weight: bold;
 `;

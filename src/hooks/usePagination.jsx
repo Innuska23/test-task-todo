@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const usePagination = ({ count, limit }) => {
+export const usePagination = ({ count, limit, localStorageKey }) => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const pages = count ? Array.from(Array(Math.ceil(count / limit)).keys()) : [];
 
   const offset = currentPage * limit;
+
+  useEffect(() => {
+    if (!localStorageKey) return;
+
+    const savedPage = Number(localStorage.getItem(localStorageKey));
+
+    setCurrentPage(savedPage);
+  }, [localStorageKey]);
+
+  useEffect(() => {
+    if (!localStorageKey || !currentPage) return;
+
+    localStorage.setItem(localStorageKey, String(currentPage));
+  }, [currentPage, localStorageKey]);
 
   return {
     offset,

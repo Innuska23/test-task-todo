@@ -5,7 +5,9 @@ export const HeaderWrapper = styled.div`
   padding-right: 75px;
   align-self: stretch;
   justify-content: center;
+  align-items: center;
   margin-bottom: 40px;
+  padding: 0;
 `;
 
 export const HeaderText = styled.h1`

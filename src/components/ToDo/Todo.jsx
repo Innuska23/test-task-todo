@@ -12,6 +12,7 @@ export const ToDO = () => {
   const { currentPage, offset, pages, setCurrentPage } = usePagination({
     count: data?.length,
     limit: DEFAULT_LIMIT,
+    localStorageKey: "TODO:pagination-todo-list",
   });
 
   const todos = useMemo(() => {
@@ -19,13 +20,6 @@ export const ToDO = () => {
 
     return data.slice(offset, offset + DEFAULT_LIMIT);
   }, [data, offset]);
-  console.log(
-    "🚀 ~ file: Todo.jsx:28 ~ todos ~ todos:",
-    data,
-    todos,
-    offset,
-    offset + DEFAULT_LIMIT
-  );
 
   if (isLoading) return <h1>Loading ...</h1>;
 

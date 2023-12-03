@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import {
+  PaginationBlankItem,
   PaginationButton,
   PaginationContainer,
   PaginationTotal,
@@ -19,7 +22,7 @@ export const Pagination = ({ pages, currentPage, onSetPage }) => {
 
   return (
     <PaginationContainer>
-      <div></div>
+      <PaginationBlankItem></PaginationBlankItem>
       <PaginationWrapper>
         <li>
           <PaginationButton
@@ -51,4 +54,10 @@ export const Pagination = ({ pages, currentPage, onSetPage }) => {
       <PaginationTotal>Total pages: {pages.length}</PaginationTotal>
     </PaginationContainer>
   );
+};
+
+Pagination.propTypes = {
+  pages: PropTypes.arrayOf(PropTypes.number),
+  currentPage: PropTypes.number,
+  onSetPage: PropTypes.func.isRequired,
 };

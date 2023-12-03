@@ -28,4 +28,5 @@ export const ToDoListItemButton = styled.button`
   white-space: nowrap;
   :hover {
     background-color: #ccc;
+  }
 `;

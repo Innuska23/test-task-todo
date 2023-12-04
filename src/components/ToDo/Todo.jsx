@@ -3,9 +3,9 @@ import { DEFAULT_LIMIT } from "../../constants/common";
 import { usePagination } from "../../hooks/usePagination";
 import { useGetToDoListQuery } from "../../redux/api/ToDoApi";
 import { Pagination } from "../Pagination";
-import { Header } from "../header";
 import { Form } from "./ToDoForm";
 import { ToDoList } from "./ToDoList/ToDoList";
+import { Header } from "../Header";
 
 export const ToDO = () => {
   const { data, isLoading } = useGetToDoListQuery();

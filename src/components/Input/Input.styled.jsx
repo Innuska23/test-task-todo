@@ -7,12 +7,13 @@ export const InputStyled = styled.input`
   height: 30px;
   padding-left: 10px;
   width: 210px;
+  font-size: 16px;
   @media (min-width: 768px) {
     height: 40px;
   }
   :focus,
   :active {
-    outline: 1px solid #4c91af;
-    border-color: #4c91af;
+    outline: 1px solid var(--color-blue);
+    border-color: var(--color-blue);
   }
 `;

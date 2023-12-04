@@ -23,7 +23,7 @@ The application has an input and an "Add" button, after which a new task is adde
 
 ![ToDo app done:](/src/assets/done.png)
 
-The following screenshot shows the button "Edit". When you click on the button, an input appears to change the text itself and two additional buttons.
+The provided screenshot illustrates the 'Edit' button. Upon clicking this button, an input field appears, allowing users to modify the task text. Additionally, two extra buttons become visible.
 
 ![ToDo app edit:](/src/assets/edit.png)
 

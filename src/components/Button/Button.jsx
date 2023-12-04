@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import { ButtonStyled } from "./Button.styled";
 import { Colors } from "../../constants/theme";
 

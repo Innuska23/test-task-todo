@@ -21,7 +21,7 @@ export const PaginationWrapper = styled.ul`
 `;
 
 export const PaginationButton = styled.button`
-  background-color: #4c91af;
+  background-color: var(--color-blue);
   border: none;
   box-shadow: 0 3px 1px #0000001a, 0 1px 2px #00000014, 0 2px 2px #0000001f;
   border-radius: 5px;

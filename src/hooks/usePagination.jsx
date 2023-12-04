@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const usePagination = ({ count, limit, localStorageKey }) => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(-1);
 
   const pages = count ? Array.from(Array(Math.ceil(count / limit)).keys()) : [];
 
@@ -16,7 +16,7 @@ export const usePagination = ({ count, limit, localStorageKey }) => {
   }, [localStorageKey]);
 
   useEffect(() => {
-    if (!localStorageKey || !currentPage) return;
+    if (!localStorageKey || currentPage === -1) return;
 
     localStorage.setItem(localStorageKey, String(currentPage));
   }, [currentPage, localStorageKey]);

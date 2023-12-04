@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { DEFAULT_LIMIT } from "../../constants/common";
 import { usePagination } from "../../hooks/usePagination";
 import { useGetToDoListQuery } from "../../redux/api/ToDoApi";
@@ -6,6 +7,7 @@ import { Pagination } from "../Pagination";
 import { Form } from "./ToDoForm";
 import { ToDoList } from "./ToDoList/ToDoList";
 import { Header } from "../Header";
+import { Loader } from "../Loader/Loader";
 
 export const ToDO = () => {
   const { data, isLoading } = useGetToDoListQuery();
@@ -21,7 +23,7 @@ export const ToDO = () => {
     return data.slice(offset, offset + DEFAULT_LIMIT);
   }, [data, offset]);
 
-  if (isLoading) return <h1>Loading ...</h1>;
+  if (isLoading) return <Loader />;
 
   return (
     <>

@@ -8,6 +8,9 @@ export const ButtonStyled = styled.button`
   cursor: pointer;
   border-radius: 10px;
   padding: 8px 8px;
+  :hover {
+    box-shadow: 0 4px 2px #0000001a, 0 2px 3px #00000014, 0 3px 3px #0000001f;
+  }
 
   @media (min-width: 768px) {
     padding: 10px 18px;
